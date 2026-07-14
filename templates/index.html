@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Hindusthan Institute of Technology - Student Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header class="topbar">
+    <button id="menuBtn" class="dots" title="Menu">⋮</button>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" />
+    <div class="titles">
+      <h1>Hindusthan Institute of Technology</h1>
+      <p>Coimbatore &middot; Student Analysis Dashboard</p>
+    </div>
+  </header>
+
+  <aside id="sidePanel" class="side-panel hidden">
+    <h3>Search Details</h3>
+    <label>Search by Name</label>
+    <input type="text" id="searchName" placeholder="Student name" />
+    <label>Search by Roll No</label>
+    <input type="text" id="searchRoll" placeholder="Roll number" />
+    <button id="closePanel">Close</button>
+  </aside>
+
+  <section class="controls">
+    <form id="uploadForm">
+      <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" required />
+      <button type="submit">Upload</button>
+    </form>
+    <input type="text" id="globalSearch" placeholder="Search anything (name, roll no, etc.)" />
+    <div class="total">Total Records: <span id="totalCount">0</span></div>
+  </section>
+
+  <section id="categorySection" class="categories"></section>
+
+  <section class="table-wrap">
+    <h2 id="tableTitle">Uploaded Data</h2>
+    <div id="tableContainer"></div>
+  </section>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
